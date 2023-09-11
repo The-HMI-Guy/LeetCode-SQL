@@ -38,7 +38,11 @@ Output:
 Explanation: a@b.com is repeated two times. */
 
 --Solution:
-DELETE P1
-FROM Person P1
-JOIN Person P2 ON P1.email =P2.email
-WHERE P1.id > P2.id;
+SELECT 
+    email
+FROM 
+    Person
+GROUP BY 
+    email
+HAVING 
+    COUNT(email) > 1
